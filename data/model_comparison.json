@@ -1,0 +1,68 @@
+[
+  {
+    "model": "Seasonal Naive",
+    "RMSE": 21.36,
+    "MAE": 17.96,
+    "MAPE": 58.64,
+    "role": "Baseline",
+    "details": "Weekly persistence benchmark (t uses t-7)."
+  },
+  {
+    "model": "ARIMA",
+    "RMSE": 23.24,
+    "MAE": 20.16,
+    "MAPE": 66.68,
+    "role": "Statistical",
+    "order": [
+      2,
+      1,
+      3
+    ],
+    "aic": 3095.045,
+    "details": "AIC-selected non-seasonal ARIMA."
+  },
+  {
+    "model": "SARIMA",
+    "RMSE": 22.02,
+    "MAE": 18.81,
+    "MAPE": 60.94,
+    "role": "Statistical",
+    "order": [
+      0,
+      1,
+      2
+    ],
+    "seasonal_order": [
+      0,
+      0,
+      1,
+      7
+    ],
+    "aic": 3026.156,
+    "details": "AIC-selected weekly seasonal model."
+  },
+  {
+    "model": "Random Forest",
+    "RMSE": 5.93,
+    "MAE": 4.42,
+    "MAPE": 22.08,
+    "role": "Machine learning",
+    "details": "300 trees; min_samples_leaf=2; recursive 7-day refit forecast."
+  },
+  {
+    "model": "XGBoost",
+    "RMSE": 5.95,
+    "MAE": 4.62,
+    "MAPE": 23.18,
+    "role": "Machine learning",
+    "details": "400 estimators; learning_rate=0.05; max_depth=4."
+  },
+  {
+    "model": "Prophet",
+    "RMSE": 28.24,
+    "MAE": 25.98,
+    "MAPE": 95.95,
+    "role": "Decomposition benchmark",
+    "details": "Weekly + yearly seasonality; yearly seasonality warning due to limited history."
+  }
+]
